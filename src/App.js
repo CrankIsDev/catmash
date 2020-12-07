@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Catmash
+        <h1>Cat Mash</h1>
       </header>
     </div>
   );
