@@ -34,9 +34,14 @@ class Catcard extends Component {
     const { images } = this.state;
     
     return(
-     <div>
-       {images.map((image, i) => 
-          <img key={i} src={image.url} alt="" /> 
+     <div className="container">
+       {images.map((image, i) =>
+       <div key={i} className="card">
+          <img  src={image.url} alt="" className="cat" />
+          <div>
+            <p>Résultat:</p>
+          </div>
+       </div>
        )}
      </div>
     )
