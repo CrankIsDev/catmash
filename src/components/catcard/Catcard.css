@@ -1,6 +1,9 @@
 .container {
   display: inline-block;
-  column-count: 3;
+  column-count: 4;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .card {

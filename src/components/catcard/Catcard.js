@@ -39,7 +39,7 @@ class Catcard extends Component {
        <div key={i} className="card">
           <img  src={image.url} alt="" className="cat" />
           <div>
-            <p>Résultat:</p>
+            <p>Résultat: 10 votes</p>
           </div>
        </div>
        )}
