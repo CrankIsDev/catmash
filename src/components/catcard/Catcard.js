@@ -1,38 +1,44 @@
 /* Display cat ranking */
 import React, { Component } from "react";
-import axios from "axios";
+
 
 import "./Catcard.css";
+
+const proxyUrl = "https://cors-anywhere.herokuapp.com/"
+const urlCat = "https://latelier.co/data/cats.json"
 
 class Catcard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      images: {
-        url: "",
-        id: ""
-      }
+      images: [],
     };
   }
 
   componentDidMount() {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/"
-    const urlCat = "https://latelier.co/data/cats.json"
-    axios.get(proxyUrl + urlCat)
-    .then(res => {
-      console.log(res.data);
-      this.setState({ images: res.data.images[0].url});
-      console.log(res.data.images[0].url);
-    })
+    
+    fetch(proxyUrl + urlCat)
+
+    .then(res => res.json())
+     
+    .then(data => this.setState({ images: data.images }))
+    
     .catch(error => {
       console.log(error);
     });
+    
   }
 
   render() {
+    const { images } = this.state;
+    
     return(
-     <div></div>
+     <div>
+       {images.map((image, i) => 
+          <img key={i} src={image.url} alt="" /> 
+       )}
+     </div>
     )
   } 
 };
